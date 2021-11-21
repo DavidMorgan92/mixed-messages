@@ -1,3 +1,4 @@
+// Use file system module for loading JSON files
 const fs = require('fs');
 
 /**
@@ -22,7 +23,14 @@ function loadWords(filename = "words.json") {
 	return obj;
 }
 
+/**
+ * Array of libs to inject random words into
+ */
 const libs = loadLibs();
+
+/**
+ * Object containing lists of words to inject into a lib
+ */
 const words = loadWords();
 
 /**
@@ -84,4 +92,5 @@ function generateMadLib() {
 	return lib;
 }
 
+// Generate a mad lib and display it in the console
 console.log(generateMadLib());
