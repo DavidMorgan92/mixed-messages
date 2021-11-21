@@ -296,7 +296,7 @@ function injectIntoLib(injectType, lib) {
 		lib = injectString(lib, injectStart, injectEnd, injectStr);
 
 		// Advance the startIndex to the end of the injected word for the next search iteration
-		startIndex += index + injectStr.length;
+		startIndex = injectEnd;
 	}
 
 	return lib;
@@ -307,7 +307,6 @@ function injectIntoLib(injectType, lib) {
  * @returns A random madlib
  */
 function generateMadLib() {
-	// TODO: Refactor, make clearer, change comments and variable names?
 	// Choose a random lib
 	let lib = libs[Math.floor(Math.random() * libs.length)];
 
