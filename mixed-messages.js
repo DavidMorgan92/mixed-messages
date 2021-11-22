@@ -2,22 +2,11 @@
 const fs = require('fs');
 
 /**
- * Loads an array of libs from a JSON file
- * @param {string} [filename=libs.json] - The libs file to load
- * @returns An array of libs
+ * Load a JSON object from the given file
+ * @param {string} filename - The file to load
+ * @returns The object in the JSON file
  */
-function loadLibs(filename = "libs.json") {
-	const data = fs.readFileSync(filename);
-	const obj = JSON.parse(data);
-	return obj.libs;
-}
-
-/**
- * Load a words object which contains words to inject into a lib
- * @param {string} [filename=words.json] - The words file to load
- * @returns The words object for injecting into the libs
- */
-function loadWords(filename = "words.json") {
+function loadJSON(filename) {
 	const data = fs.readFileSync(filename);
 	const obj = JSON.parse(data);
 	return obj;
@@ -26,12 +15,12 @@ function loadWords(filename = "words.json") {
 /**
  * Array of libs to inject random words into
  */
-const libs = loadLibs();
+const libs = loadJSON("libs.json").libs;
 
 /**
  * Object containing lists of words to inject into a lib
  */
-const words = loadWords();
+const words = loadJSON("words.json");
 
 /**
  * Replace a section of the starting string with the injection
