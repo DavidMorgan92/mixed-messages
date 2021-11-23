@@ -15,7 +15,7 @@ function loadJSON(filename) {
 /**
  * Array of libs to inject random words into
  */
-const libs = loadJSON("libs.json").libs;
+const libs = loadJSON("libs.json");
 
 /**
  * Object containing lists of words to inject into a lib
