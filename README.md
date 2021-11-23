@@ -33,4 +33,7 @@ Example from words.json:
 	...
 ```
 
-An inject site can optionally be fillowed by a tilde (~), in which case the word injected will be capitalized.
+An inject site can optionally be fillowed by a tilde (~), in which case the word injected will be capitalized, which is useful for an inject site at the start of a sentence. For example:
+```
+{adj}~
+```
