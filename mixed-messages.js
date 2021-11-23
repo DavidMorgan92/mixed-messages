@@ -40,7 +40,7 @@ function injectString(startingString, startIndex, endIndex, injection) {
  * @returns The capitalized version of the input string
  */
 function capitalize(str) {
-	return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase();
+	return str.charAt(0).toUpperCase() + str.substr(1);
 }
 
 /**
