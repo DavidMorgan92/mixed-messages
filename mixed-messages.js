@@ -35,6 +35,15 @@ function injectString(startingString, startIndex, endIndex, injection) {
 }
 
 /**
+ * Returns the given string with the first letter capitalized
+ * @param {string} str - The input string to capitalize
+ * @returns The capitalized version of the input string
+ */
+function capitalize(str) {
+	return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase();
+}
+
+/**
  * Inject random words of the given inject type into the lib and return it
  * @param {string} injectType - The type of word to inject into the lib
  * @param {string} lib - The lib into which to inject random words
@@ -48,10 +57,16 @@ function injectIntoLib(injectType, lib) {
 	while ((index = lib.indexOf(searchStr, startIndex)) > -1) {
 		// Get the start and end indices of the injection site
 		const injectStart = index;
-		const injectEnd = index + searchStr.length;
+		let injectEnd = index + searchStr.length;
 
 		// Get a random word to inject
-		const injectStr = words[injectType][Math.floor(Math.random() * words[injectType].length)];
+		let injectStr = words[injectType][Math.floor(Math.random() * words[injectType].length)];
+
+		// If an inject site is followed by a tilde, capitalize the word
+		if (lib.charAt(injectEnd) === "~") {
+			injectStr = capitalize(injectStr);
+			++injectEnd;
+		}
 
 		// Inject the string and store the result as the new lib
 		lib = injectString(lib, injectStart, injectEnd, injectStr);
