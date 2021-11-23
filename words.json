@@ -1388,5 +1388,22 @@
 		"Yemeni",
 		"Zambian",
 		"Zimbabwean"
+	],
+	"shapeplural": [
+		"squares",
+		"triangles",
+		"circles",
+		"spheres",
+		"prisms",
+		"rectangles",
+		"cuboids",
+		"rhomboids",
+		"pyramids",
+		"pentagons",
+		"hexagons",
+		"cylinders",
+		"septagons",
+		"octagons",
+		"nonagons"
 	]
 }
